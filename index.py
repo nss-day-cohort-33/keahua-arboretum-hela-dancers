@@ -4,7 +4,7 @@ from user_action import annex_habitat
 from user_action import release_animal
 from user_action import build_facility_report
 from user_action import feed_animal
-
+from user_action import cultivate_plant
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
 
 def build_menu():
@@ -35,7 +35,7 @@ def main_menu():
         feed_animal(keahua)
 
     if choice == "4":
-        pass
+        cultivate_plant(keahua)
 
     if choice == "5":
         build_facility_report(keahua)
