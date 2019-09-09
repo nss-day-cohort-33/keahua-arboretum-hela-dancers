@@ -3,6 +3,7 @@
 from animals import Animal
 from organism_type import Forestful
 from organism_type import Identifiable
+from organism_type import Crawling
 
 class GoldGecko(Animal, Forestful, Crawling, Identifiable):
 
