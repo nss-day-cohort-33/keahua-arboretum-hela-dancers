@@ -1,5 +1,5 @@
-from .habitat import IContainsAnimals
-from .habitat import IContainsPlants
+from .habitat import ContainsAnimals
+from .habitat import ContainsPlants
 
 
 class Biome:

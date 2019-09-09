@@ -1,24 +1,24 @@
+from organism_type import Stagnant
 import sys
-from .habitat import IContainsAnimals
-from .habitat import IContainsPlants
+from .habitat import ContainsAnimals
+from .habitat import ContainsPlants
 sys.path.append('../')
 
-from organism_type import IStagnant
 # from animals.
 
 
 class Swamp():
 
     def __init__(self, name):
-      self.name = name
-      self.inhabitants = []
+        self.name = name
+        self.inhabitants = []
 
     def animal_count(self):
         return "This place has a bunch of animals in it"
 
     def addInhabitant(self, item):
-        if not isinstance(item, IStagnant):
-            raise TypeError(f"{item} is not of type IStagnant")
+        if not isinstance(item, Stagnant):
+            raise TypeError(f"{item} is not of type Stagnant")
         self.inhabitants.append(item)
 
     def __str__(self):

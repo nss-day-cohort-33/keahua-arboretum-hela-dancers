@@ -1,2 +1,2 @@
-from .contains_animals import IContainsAnimals
-from .contains_plants import IContainsPlants
+from .contains_animals import ContainsAnimals
+from .contains_plants import ContainsPlants
