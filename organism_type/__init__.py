@@ -12,5 +12,10 @@ from .movements import Swimming
 from .movements import Walking
 from .movements import Crawling
 
+from .clay_soil import Clay_Soil
+from .loamy_soil import Loamy_Soil
+from .marsh_soil import Marsh_Soil
+from .silt_soil import Silt_Soil
+
 # from .habitat.contains_animals import ContainsAnimals
 # from .habitat.contains_plants import ContainsPlants
