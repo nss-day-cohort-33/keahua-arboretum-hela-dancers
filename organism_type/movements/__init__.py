@@ -1,3 +1,3 @@
-from .flying import IFlying
-from .walking import IWalking
-from .swimming import ISwimming
+from .flying import Flying
+from .walking import Walking
+from .swimming import Swimming

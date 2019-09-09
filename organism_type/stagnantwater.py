@@ -1,6 +1,7 @@
-from .aquatic import IAquatic
+from .aquatic import Aquatic
 
-class IStagnant(IAquatic):
+
+class Stagnant(Aquatic):
 
     def __init__(self):
         super().__init__()
