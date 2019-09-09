@@ -1,4 +1,4 @@
-class Walking:
+class Crawling:
 
     def __init__(self, leg_count=2):
         self.leg_count = leg_count
@@ -6,4 +6,4 @@ class Walking:
 
 
     def swim(self):
-        print("Stomp stopm, I'm walking!")
+        print("Stomp stopm, I'm crawling!")

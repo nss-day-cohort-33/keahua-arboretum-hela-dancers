@@ -7,7 +7,7 @@ from animals import Kikakapu
 from animals import Opeapea
 from animals import HappySpider
 
-def release_animal(arboretum):
+def feed_animal(arboretum):
     animal = None
 
     print("1. River Dolphin")
@@ -19,7 +19,7 @@ def release_animal(arboretum):
     print("7. Opeapea (Bat)")
     print("8. Happy Spider")
 
-    choice = input("Choose animal to release > ")
+    choice = input("Choose animal to feed > ")
 
     if choice == "1":
         animal = RiverDolphin()
@@ -45,12 +45,8 @@ def release_animal(arboretum):
     if choice == "8":
         animal = HappySpider()
 
-    for index, river in enumerate(arboretum.rivers):
-        print(f'{index + 1}. River {river.id}')
+    for index, food in enumerate(animal.food):
+        print(f'{index + 1}. {food}')
 
-    print("Release the animal into which biome?")
+    print("Feed the animal what?")
     choice = input("> ")
-
-    arboretum.rivers[int(choice) - 1].animals.append(animal)
-
-
