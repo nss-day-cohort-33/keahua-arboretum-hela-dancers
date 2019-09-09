@@ -6,8 +6,12 @@ from animals import NeneGoose
 from animals import Kikakapu
 from animals import Opeapea
 from animals import HappySpider
+from organism_type import Freshwater
+from organism_type import Stagnant
+
 
 def release_animal(arboretum):
+    compatible_biomes = []
     animal = None
 
     print("1. River Dolphin")
@@ -45,12 +49,18 @@ def release_animal(arboretum):
     if choice == "8":
         animal = HappySpider()
 
-    for index, river in enumerate(arboretum.rivers):
-        print(f'{index + 1}. River {river.id}')
+    if isinstance(animal, Freshwater):
+        for eachitem in arboretum.rivers:
+            compatible_biomes.append(eachitem)
+
+    if isinstance(animal, Stagnant):
+        for eachitem in arboretum.swamps:
+            compatible_biomes.append(eachitem)
+
+    for index, biome in enumerate(compatible_biomes):
+        print(f'{index + 1}. {biome.name} ({len(biome.animals)} animals)')
 
     print("Release the animal into which biome?")
     choice = input("> ")
 
     arboretum.rivers[int(choice) - 1].animals.append(animal)
-
-
