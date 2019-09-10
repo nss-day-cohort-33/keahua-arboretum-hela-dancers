@@ -1,4 +1,3 @@
-
 from organism_type import Aquatic
 from organism_type import Identifiable
 from .habitat import ContainsAnimals
