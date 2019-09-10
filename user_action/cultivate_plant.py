@@ -40,7 +40,7 @@ def cultivate_plant(arboretum):
             compatible_biomes.append(plant_in_list)
 
     if isinstance(plant, Marsh_Soil):
-        for plant_in_list in arboretum.swamp:
+        for plant_in_list in arboretum.swamps:
             compatible_biomes.append(plant_in_list)
 
     if isinstance(plant, Silt_Soil):
@@ -48,9 +48,9 @@ def cultivate_plant(arboretum):
             compatible_biomes.append(plant_in_list)
 
     for index, biome in enumerate(compatible_biomes):
-        print(f'{index + 1}. {biome.name} (len({biome.plants}) plants)')
+        print(f'{index + 1}. {biome.name} ({len(biome.plants)} plants)')
 
     print("Cultivate the plant into which biome?")
     choice = input("> ")
 
-    arboretum.swamp[int(choice) - 1].plants.append(plant)
+    arboretum.swamps[int(choice) - 1].plants.append(plant)
