@@ -27,31 +27,35 @@ def release_animal(arboretum):
     print("7. Opeapea (Bat)")
     print("8. Happy Spider")
 
-    choice = input("Choose animal to release > ")
+    choice = input("\nChoose animal to release > ")
 
     if choice == "1":
         animal = RiverDolphin()
 
-    if choice == "2":
+    elif choice == "2":
         animal = Pueo()
 
-    if choice == "3":
+    elif choice == "3":
         animal = Ulae()
 
-    if choice == "4":
+    elif choice == "4":
         animal = GoldGecko()
 
-    if choice == "5":
+    elif choice == "5":
         animal = NeneGoose()
 
-    if choice == "6":
+    elif choice == "6":
         animal = Kikakapu()
 
-    if choice == "7":
+    elif choice == "7":
         animal = Opeapea()
 
-    if choice == "8":
+    elif choice == "8":
         animal = HappySpider()
+
+    else:
+        input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+        return
 
     if isinstance(animal, Freshwater):
         for eachitem in arboretum.rivers:
@@ -77,13 +81,17 @@ def release_animal(arboretum):
         for eachitem in arboretum.grasslands:
             compatible_biomes.append(eachitem)
 
+    else:
+        input("\nThat was a bad input, try again next time, fool! \n\nPress any key to return to the menu...")
+        return
+
     for index, biome in enumerate(compatible_biomes):
         print(f'{index + 1}. {biome.name} ({len(biome.animals)} animals)')
 
     def add_animal(choice):
         if choice == "":
-            choice = input("")
-        if choice != "" and compatible_biomes[int(choice) - 1].exceed_max(animal) == False:
+            input("Press any key to return to the menu...")
+        if choice != "" and int(choice) < 9 and compatible_biomes[int(choice) - 1].exceed_max(animal) == False:
             print("****   That biome is not large enough   ****")
             print("****     Please choose another one      ****")
             for index, biome in enumerate(compatible_biomes):

@@ -6,6 +6,7 @@ from animals import NeneGoose
 from animals import Kikakapu
 from animals import Opeapea
 from animals import HappySpider
+import os
 
 def feed_animal(arboretum):
     animal = None
@@ -19,31 +20,35 @@ def feed_animal(arboretum):
     print("7. Opeapea (Bat)")
     print("8. Happy Spider")
 
-    choice = input("Choose animal to feed > ")
+    choice = input("\nChoose animal to feed > ")
 
     if choice == "1":
         animal = RiverDolphin()
 
-    if choice == "2":
+    elif choice == "2":
         animal = Pueo()
 
-    if choice == "3":
+    elif choice == "3":
         animal = Ulae()
 
-    if choice == "4":
+    elif choice == "4":
         animal = GoldGecko()
 
-    if choice == "5":
+    elif choice == "5":
         animal = NeneGoose()
 
-    if choice == "6":
+    elif choice == "6":
         animal = Kikakapu()
 
-    if choice == "7":
+    elif choice == "7":
         animal = Opeapea()
 
-    if choice == "8":
+    elif choice == "8":
         animal = HappySpider()
+
+    else:
+        input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+        return
 
     food_list = list(animal.food)
 
@@ -52,6 +57,9 @@ def feed_animal(arboretum):
 
     print("Feed the animal what?")
     choice = input("> ")
+
+    if int(choice) - 1 > len(food_list):
+            input("Press any key to return to the menu...")
 
     print(f'The {animal.species} ate a {food_list[int(choice) - 1]} for a meal')
     choice = input("> ")

@@ -17,19 +17,23 @@ def cultivate_plant(arboretum):
     print("3. Mountain Apple Tree")
     print("4. Blue Jade Vine")
 
-    choice = input("Choose plant to cultivate > ")
+    choice = input("\nChoose plant to cultivate > ")
 
     if choice == "1":
         plant = Rainbow_Eucalyptus_Tree()
 
-    if choice == "2":
+    elif choice == "2":
         plant = Silversword()
 
-    if choice == "3":
+    elif choice == "3":
         plant = Mountain_Apple_Tree()
 
-    if choice == "4":
+    elif choice == "4":
         plant = Blue_Jade_Vine()
+
+    else:
+        input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+        return
 
     if isinstance(plant, Clay_Soil):
         for plant_in_list in arboretum.mountains:
