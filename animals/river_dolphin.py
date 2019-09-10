@@ -16,7 +16,6 @@ class RiverDolphin(Animal, Freshwater, Saltwater, Swimming, Identifiable):
         Identifiable.__init__(self)
 
     def feed(self, food):
-        if food in self.__food:
             print(f'The dolphin ate a {food} for a meal')
         # TODO: Ask if we should keep or remove
         # else:
