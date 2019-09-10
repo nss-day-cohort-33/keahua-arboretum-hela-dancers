@@ -3,8 +3,8 @@ from environments import Swamp
 
 river1 = River("River", 12, 6)
 river2 = River("River", 12, 6)
-swamp1 = Swamp("Swamp", 8, 12)
-swamp2 = Swamp("Swamp", 8, 12)
+swamp1 = Swamp("Swamp", 8, 3)
+swamp2 = Swamp("Swamp", 8, 2)
 
 
 class Arboretum:
