@@ -1,6 +1,3 @@
-from environments import River
-from environments import Swamp
-
 class Arboretum:
     def __init__(self, name, address):
         self.name = name
