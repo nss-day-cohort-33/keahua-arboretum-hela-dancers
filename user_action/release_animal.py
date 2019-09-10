@@ -8,6 +8,7 @@ from animals import Opeapea
 from animals import HappySpider
 from organism_type import Freshwater
 from organism_type import Stagnant
+from organism_type import Saltwater
 
 
 def release_animal(arboretum):
@@ -55,6 +56,10 @@ def release_animal(arboretum):
 
     if isinstance(animal, Stagnant):
         for eachitem in arboretum.swamps:
+            compatible_biomes.append(eachitem)
+
+    if isinstance(animal, Saltwater):
+        for eachitem in arboretum.coastlines:
             compatible_biomes.append(eachitem)
 
     for index, biome in enumerate(compatible_biomes):
