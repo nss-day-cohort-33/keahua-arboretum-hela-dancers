@@ -12,10 +12,15 @@ class Biome:
     def exceed_max(self, what_organism):
         try:
             if what_organism.food != "":
-                if self.animals == self.max_animals:
+                if len(self.animals) < self.max_animals:
                     self.animals.append(what_organism)
-            else:
-                if self.plants == self.max_plants:
-                    self.plants.append(what_organism)
+                else:
+                     return False
+
         except AttributeError:
-            raise AttributeError("Cannot add organism to Biome")
+            if len(self.plants) < self.max_plants:
+                    self.plants.append(what_organism)
+            else:
+                  return False
+
+

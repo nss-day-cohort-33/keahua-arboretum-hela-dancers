@@ -35,6 +35,7 @@ def cultivate_plant(arboretum):
         for plant_in_list in arboretum.mountains:
             compatible_biomes.append(plant_in_list)
 
+
     if isinstance(plant, Loamy_Soil):
         for plant_in_list in arboretum.forest:
             compatible_biomes.append(plant_in_list)
@@ -50,7 +51,17 @@ def cultivate_plant(arboretum):
     for index, biome in enumerate(compatible_biomes):
         print(f'{index + 1}. {biome.name} ({len(biome.plants)} plants)')
 
-    print("Cultivate the plant into which biome?")
-    choice = input("> ")
+    def add_plant(choice):
+            if choice == "":
+                choice = input("")
+            if choice != "" and compatible_biomes[int(choice) - 1].exceed_max(plant) == False:
+                print("****   That biome is not large enough   ****")
+                print("****     Please choose another one      ****")
+                for index, biome in enumerate(compatible_biomes):
+                    print(f'{index + 1}. {biome.name} ({len(biome.plants)} plants)')
 
-    arboretum.swamps[int(choice) - 1].plants.append(plant)
+                choice = input("Cultivate the plant into which biome? >")
+                add_plant(choice)
+    choice = input("Cultivate the plant into which biome? >")
+    add_plant(choice)
+
