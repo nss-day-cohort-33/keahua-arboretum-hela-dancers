@@ -9,6 +9,9 @@ from animals import HappySpider
 from organism_type import Freshwater
 from organism_type import Stagnant
 from organism_type import Saltwater
+from organism_type import Forestful
+from organism_type import Mountainful
+from organism_type import Grassful
 
 
 def release_animal(arboretum):
@@ -62,10 +65,38 @@ def release_animal(arboretum):
         for eachitem in arboretum.coastlines:
             compatible_biomes.append(eachitem)
 
+    if isinstance(animal, Forestful):
+        for eachitem in arboretum.forests:
+            compatible_biomes.append(eachitem)
+
+    if isinstance(animal, Mountainful):
+        for eachitem in arboretum.mountains:
+            compatible_biomes.append(eachitem)
+
+    if isinstance(animal, Grassful):
+        for eachitem in arboretum.grasslands:
+            compatible_biomes.append(eachitem)
+
     for index, biome in enumerate(compatible_biomes):
         print(f'{index + 1}. {biome.name} ({len(biome.animals)} animals)')
 
-    print("Release the animal into which biome?")
-    choice = input("> ")
+    def add_animal(choice):
+        if choice == "":
+            choice = input("")
+        if choice != "" and compatible_biomes[int(choice) - 1].exceed_max(animal) == False:
+            print("****   That biome is not large enough   ****")
+            print("****     Please choose another one      ****")
+            for index, biome in enumerate(compatible_biomes):
+                print(
+                    f'{index + 1}. {biome.name} ({len(biome.animals)} animals)')
 
-    arboretum.rivers[int(choice) - 1].animals.append(animal)
+            choice = input("Cultivate the animal into which biome? >")
+            add_animal(choice)
+
+    choice = input("Release the animal into which biome? >")
+    add_animal(choice)
+
+    # print("Release the animal into which biome?")
+    # choice = input("> ")
+
+    # arboretum.rivers[int(choice) - 1].animals.append(animal)
