@@ -8,6 +8,7 @@ from animals import Opeapea
 from animals import HappySpider
 import os
 
+
 def feed_animal(arboretum):
     # animal = None
 
@@ -90,6 +91,11 @@ def feed_animal(arboretum):
             count += 1
             print(f'    {count}. {animal.species} [{str(animal.id)[0:8]}]')
 
+    if animal_list == []:
+        input(
+            'No animals available to feed.  Please select a biome and add an animal first. Press enter to return to menu.\n  ')
+        return
+
     print("Which animal do you wish to feed?")
     choice = input("> ")
 
@@ -109,11 +115,13 @@ def feed_animal(arboretum):
 
     try:
         if int(choice) > len(food_list):
-            input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+            input(
+                "\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
             return
     except ValueError:
         input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
         return
 
-    print(f'The {animal.species} ate a {food_list[int(choice) - 1]} for a meal')
+    print(
+        f'The {animal.species} ate a {food_list[int(choice) - 1]} for a meal')
     choice = input("> ")

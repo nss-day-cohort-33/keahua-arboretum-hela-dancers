@@ -7,12 +7,13 @@ from user_action import feed_animal
 from user_action import cultivate_plant
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
 
+
 def build_menu():
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("1. Annex Habitat")
-    print("2. Release Animal into Habitat")
+    print("1. Annex Biome")
+    print("2. Release Animal into Biome")
     print("3. Feed Animal")
-    print("4. Add Plant to Habitat")
+    print("4. Add Plant to Biome")
     print("5. Display Facility Report")
     print("6. Exit")
 
@@ -43,5 +44,6 @@ def main_menu():
 
     if choice != "6":
         main_menu()
+
 
 main_menu()
