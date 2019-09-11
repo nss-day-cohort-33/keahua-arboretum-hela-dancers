@@ -58,8 +58,13 @@ def feed_animal(arboretum):
     print("Feed the animal what?")
     choice = input("> ")
 
-    if int(choice) - 1 > len(food_list):
-            input("Press any key to return to the menu...")
+    try:
+        if int(choice) - 1 > len(food_list):
+            input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+            return
+    except ValueError:
+        input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+        return
 
     print(f'The {animal.species} ate a {food_list[int(choice) - 1]} for a meal')
     choice = input("> ")

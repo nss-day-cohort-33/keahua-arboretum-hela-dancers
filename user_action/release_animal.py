@@ -81,25 +81,28 @@ def release_animal(arboretum):
         for eachitem in arboretum.grasslands:
             compatible_biomes.append(eachitem)
 
-    else:
-        input("\nThat was a bad input, try again next time, fool! \n\nPress any key to return to the menu...")
-        return
-
     for index, biome in enumerate(compatible_biomes):
         print(f'{index + 1}. {biome.name} ({len(biome.animals)} animals)')
 
     def add_animal(choice):
         if choice == "":
             input("Press any key to return to the menu...")
-        if choice != "" and int(choice) < 9 and compatible_biomes[int(choice) - 1].exceed_max(animal) == False:
-            print("****   That biome is not large enough   ****")
-            print("****     Please choose another one      ****")
-            for index, biome in enumerate(compatible_biomes):
-                print(
-                    f'{index + 1}. {biome.name} ({len(biome.animals)} animals)')
+        try:
+            if choice != "" and int(choice) <= len(compatible_biomes) and compatible_biomes[int(choice) - 1].exceed_max(animal) == False:
+                print("****   That biome is not large enough   ****")
+                print("****     Please choose another one      ****")
+                for index, biome in enumerate(compatible_biomes):
+                    print(
+                        f'{index + 1}. {biome.name} ({len(biome.animals)} animals)')
 
-            choice = input("Cultivate the animal into which biome? >")
-            add_animal(choice)
+                choice = input("Cultivate the animal into which biome? >")
+                add_animal(choice)
+            else:
+                input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+                return
+        except ValueError:
+            input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+            return
 
     choice = input("Release the animal into which biome? >")
     add_animal(choice)
