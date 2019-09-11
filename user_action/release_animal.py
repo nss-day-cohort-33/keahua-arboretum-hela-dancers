@@ -87,6 +87,7 @@ def release_animal(arboretum):
     def add_animal(choice):
         if choice == "":
             input("Press any key to return to the menu...")
+            return
         try:
             # If statement checks for number within lenght of biome list and if adding organism will exceed biome capacity
             if choice != "" and int(choice) <= len(compatible_biomes) and compatible_biomes[int(choice) - 1].exceed_max(animal) == False:
@@ -96,22 +97,24 @@ def release_animal(arboretum):
                     print(
                         f'{index + 1}. {biome.name} ({len(biome.animals)} animals)')
 
-                choice = input("Cultivate the animal into which biome? >")
+                choice = input("Release the animal into which biome? >")
                 add_animal(choice)
             # If the number is valid but it doesn't exceed the biome capacity
             elif choice != "" and int(choice) <= len(compatible_biomes):
-                    return
+                return
             # Number that exceeds the length of the comp biomes array
             else:
-                input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+                input(
+                    "\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
                 return
         # Value that cant be converted to int like "q"
         except ValueError:
-            input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+            input(
+                "\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
             return
 
     if compatible_biomes == []:
-        input("Sorry, their are no compatible biomes to release this animal into. \nPlease annex a biome in menu option 1. \nPress any key to continue...")
+        input("Sorry, there are no compatible biomes to release this animal into. \nPlease annex a biome in menu option 1. \nPress any key to continue...")
         return
 
     choice = input("Release the animal into which biome? >")

@@ -8,6 +8,7 @@ from organism_type import Loamy_Soil
 from organism_type import Marsh_Soil
 from organism_type import Silt_Soil
 
+
 def cultivate_plant(arboretum):
     compatible_biomes = []
     plant = None
@@ -39,7 +40,6 @@ def cultivate_plant(arboretum):
         for plant_in_list in arboretum.mountains:
             compatible_biomes.append(plant_in_list)
 
-
     if isinstance(plant, Loamy_Soil):
         for plant_in_list in arboretum.forests:
             compatible_biomes.append(plant_in_list)
@@ -56,30 +56,32 @@ def cultivate_plant(arboretum):
         print(f'{index + 1}. {biome.name} ({len(biome.plants)} plants)')
 
     def add_plant(choice):
-            if choice == "":
-                choice = input("")
-            try:
-                if choice != "" and int(choice) <= len(compatible_biomes) and compatible_biomes[int(choice) - 1].exceed_max(plant) == False:
-                    print("****   That biome is not large enough   ****")
-                    print("****     Please choose another one      ****")
-                    for index, biome in enumerate(compatible_biomes):
-                        print(f'{index + 1}. {biome.name} ({len(biome.plants)} plants)')
+        if choice == "":
+            input("Press any key to return to the menu...")
+            return
+        try:
+            if choice != "" and int(choice) <= len(compatible_biomes) and compatible_biomes[int(choice) - 1].exceed_max(plant) == False:
+                print("****   That biome is not large enough   ****")
+                print("****     Please choose another one      ****")
+                for index, biome in enumerate(compatible_biomes):
+                    print(f'{index + 1}. {biome.name} ({len(biome.plants)} plants)')
 
-                    choice = input("Cultivate the plant into which biome? >")
-                    add_plant(choice)
-                elif choice != "" and int(choice) <= len(compatible_biomes):
-                    return
-                else:
-                    input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
-                    return
-            except ValueError:
-                input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+                choice = input("Cultivate the plant into which biome? >")
+                add_plant(choice)
+            elif choice != "" and int(choice) <= len(compatible_biomes):
                 return
+            else:
+                input(
+                    "\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+                return
+        except ValueError:
+            input(
+                "\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
+            return
 
     if compatible_biomes == []:
-        input("Sorry, their are no compatible biomes in which to cultivate this plant. \nPlease annex a biome in menu option 1. \nPress any key to continue...")
+        input("Sorry, there are no compatible biomes in which to cultivate this plant. \nPlease annex a biome in menu option 1. \nPress any key to continue...")
         return
 
     choice = input("Cultivate the plant into which biome? >")
     add_plant(choice)
-
