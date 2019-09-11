@@ -92,8 +92,8 @@ def feed_animal(arboretum):
             print(f'    {count}. {animal.species} [{str(animal.id)[0:8]}]')
 
     if animal_list == []:
-        print(
-            'No animals available to feed.  Please select a biome and add an animal first. \n  ')
+        input(
+            'No animals available to feed.  Please select a biome and add an animal first. Press enter to return to menu.\n  ')
         return
 
     print("Which animal do you wish to feed?")
