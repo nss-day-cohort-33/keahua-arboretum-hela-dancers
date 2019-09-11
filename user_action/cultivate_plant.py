@@ -67,6 +67,8 @@ def cultivate_plant(arboretum):
 
                     choice = input("Cultivate the plant into which biome? >")
                     add_plant(choice)
+                elif choice != "" and int(choice) <= len(compatible_biomes):
+                    return
                 else:
                     input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
                     return
