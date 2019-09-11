@@ -41,7 +41,7 @@ def cultivate_plant(arboretum):
 
 
     if isinstance(plant, Loamy_Soil):
-        for plant_in_list in arboretum.forest:
+        for plant_in_list in arboretum.forests:
             compatible_biomes.append(plant_in_list)
 
     if isinstance(plant, Marsh_Soil):
@@ -74,7 +74,9 @@ def cultivate_plant(arboretum):
                 input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
                 return
 
-
+    if compatible_biomes == []:
+        input("Sorry, their are no compatible biomes in which to cultivate this plant. \nPlease annex a biome in menu option 1. \nPress any key to continue...")
+        return
 
     choice = input("Cultivate the plant into which biome? >")
     add_plant(choice)
