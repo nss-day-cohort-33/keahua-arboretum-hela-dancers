@@ -41,7 +41,7 @@ def cultivate_plant(arboretum):
 
 
     if isinstance(plant, Loamy_Soil):
-        for plant_in_list in arboretum.forest:
+        for plant_in_list in arboretum.forests:
             compatible_biomes.append(plant_in_list)
 
     if isinstance(plant, Marsh_Soil):
