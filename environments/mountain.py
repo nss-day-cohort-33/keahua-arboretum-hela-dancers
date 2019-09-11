@@ -8,7 +8,7 @@ from .biome import Biome
 
 class Mountain(Biome, ContainsAnimals, ContainsPlants, Identifiable):
 
-    def __init__(self, name="Mountain", max_animals=4, max_plants=6):
+    def __init__(self, name="Mountain", max_animals=6, max_plants=4):
         Biome.__init__(self, name, max_animals, max_plants)
         ContainsAnimals.__init__(self)
         ContainsPlants.__init__(self)
