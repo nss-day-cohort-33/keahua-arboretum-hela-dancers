@@ -8,7 +8,7 @@ from .biome import Biome
 
 class Grassland(Biome, ContainsAnimals, ContainsPlants, Identifiable):
 
-    def __init__(self, name="Grassland", max_animals=22, max_plants=2):
+    def __init__(self, name="Grassland", max_animals=22, max_plants=15):
         Biome.__init__(self, name, max_animals, max_plants)
         ContainsAnimals.__init__(self)
         ContainsPlants.__init__(self)
