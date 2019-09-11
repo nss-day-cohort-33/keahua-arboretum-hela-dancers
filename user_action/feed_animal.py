@@ -9,46 +9,95 @@ from animals import HappySpider
 import os
 
 def feed_animal(arboretum):
-    animal = None
+    # animal = None
 
-    print("1. River Dolphin")
-    print("2. Pueo (Owl)")
-    print("3. Ulae (Lizard Fish)")
-    print("4. Gold Gecko")
-    print("5. Nene Goose")
-    print("6. Kikakapu (Fish)")
-    print("7. Opeapea (Bat)")
-    print("8. Happy Spider")
+    # print("1. River Dolphin")
+    # print("2. Pueo (Owl)")
+    # print("3. Ulae (Lizard Fish)")
+    # print("4. Gold Gecko")
+    # print("5. Nene Goose")
+    # print("6. Kikakapu (Fish)")
+    # print("7. Opeapea (Bat)")
+    # print("8. Happy Spider")
 
-    choice = input("\nChoose animal to feed > ")
+    # choice = input("\nChoose animal to feed > ")
 
-    if choice == "1":
-        animal = RiverDolphin()
+    # if choice == "1":
+    #     animal = RiverDolphin()
 
-    elif choice == "2":
-        animal = Pueo()
+    # elif choice == "2":
+    #     animal = Pueo()
 
-    elif choice == "3":
-        animal = Ulae()
+    # elif choice == "3":
+    #     animal = Ulae()
 
-    elif choice == "4":
-        animal = GoldGecko()
+    # elif choice == "4":
+    #     animal = GoldGecko()
 
-    elif choice == "5":
-        animal = NeneGoose()
+    # elif choice == "5":
+    #     animal = NeneGoose()
 
-    elif choice == "6":
-        animal = Kikakapu()
+    # elif choice == "6":
+    #     animal = Kikakapu()
 
-    elif choice == "7":
-        animal = Opeapea()
+    # elif choice == "7":
+    #     animal = Opeapea()
 
-    elif choice == "8":
-        animal = HappySpider()
+    # elif choice == "8":
+    #     animal = HappySpider()
+    count = 0
+    animal_list = []
 
-    else:
+    for river in arboretum.rivers:
+        print(f'River [{str(river.id)[0:8]}]')
+        for animal in river.animals:
+            animal_list.append(animal)
+            count += 1
+            print(f'    {count}. {animal.species} [{str(animal.id)[0:8]}]')
+
+    for swamp in arboretum.swamps:
+        print(f'Swamp [{str(swamp.id)[0:8]}]')
+        for animal in swamp.animals:
+            animal_list.append(animal)
+            count += 1
+            print(f'    {count}. {animal.species} [{str(animal.id)[0:8]}]')
+
+    for mountain in arboretum.mountains:
+        print(f'Mountain [{str(mountain.id)[0:8]}]')
+        for animal in mountain.animals:
+            animal_list.append(animal)
+            count += 1
+            print(f'    {count}. {animal.species} [{str(animal.id)[0:8]}]')
+
+    for grassland in arboretum.grasslands:
+        print(f'Grassland [{str(grassland.id)[0:8]}]')
+        for animal in grassland.animals:
+            animal_list.append(animal)
+            count += 1
+            print(f'    {count}. {animal.species} [{str(animal.id)[0:8]}]')
+
+    for coastline in arboretum.coastlines:
+        print(f'Coastline [{str(coastline.id)[0:8]}]')
+        for animal in coastline.animals:
+            animal_list.append(animal)
+            count += 1
+            print(f'    {count}. {animal.species} [{str(animal.id)[0:8]}]')
+
+    for forest in arboretum.forests:
+        print(f'Forest [{str(forest.id)[0:8]}]')
+        for animal in forest.animals:
+            animal_list.append(animal)
+            count += 1
+            print(f'    {count}. {animal.species} [{str(animal.id)[0:8]}]')
+
+    print("Which animal do you wish to feed?")
+    choice = input("> ")
+
+    if int(choice) > len(animal_list):
         input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
         return
+
+    animal = animal_list[int(choice) - 1]
 
     food_list = list(animal.food)
 
@@ -59,7 +108,7 @@ def feed_animal(arboretum):
     choice = input("> ")
 
     try:
-        if int(choice) - 1 > len(food_list):
+        if int(choice) > len(food_list):
             input("\nThat was a bad input, try again next time, fool! \nPress any key to return to the menu...")
             return
     except ValueError:
